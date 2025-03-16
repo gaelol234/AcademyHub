@@ -13,7 +13,9 @@ supabase: Client = create_client(url, key)
 st.set_page_config(page_title="Login", page_icon=":material/login:", layout="wide", initial_sidebar_state="collapsed")
 
 
-
+if not "user" in st.session_state:
+    st.session_state["user"] = None
+    
 if st.session_state["user"] is not None:
     st.write("You are already logged in")
     time.sleep(2)
